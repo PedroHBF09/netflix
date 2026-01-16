@@ -7,7 +7,7 @@ export default function Movie() {
   const [movie, setMovie] = useState(null);
 
   useEffect(() => {
-    fetch("/data/movies.json")
+    fetch(import.meta.env.BASE_URL + "data/movies.json")
       .then((res) => res.json())
       .then((data) => {
         const found = data.find((m) => m.id === Number(id));
@@ -29,7 +29,7 @@ export default function Movie() {
 
       <div className="flex flex-col md:flex-row gap-8 items-start">
         <img
-          src={movie.imagem}
+          src={import.meta.env.BASE_URL + movie.imagem.replace("/", "")}
           alt={movie.nome}
           className="w-full md:w-80 rounded-lg shadow-2xl"
         />

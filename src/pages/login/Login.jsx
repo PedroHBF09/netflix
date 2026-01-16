@@ -1,4 +1,9 @@
+import { useNavigate } from "react-router-dom";
+
 export default function Login() {
+
+  const navigate = useNavigate()
+
   return (
     <div className="min-h-screen bg-[#141414] flex flex-col items-center justify-center text-white">
       
@@ -12,9 +17,9 @@ export default function Login() {
         Quem está assistindo?
       </h2>
 
-      <button className="group flex flex-col items-center focus:outline-none">
+      <button className="group flex flex-col items-center focus:outline-none" onClick={() => navigate("/home")}>
         <div className="w-32 h-32 rounded bg-zinc-700 overflow-hidden border-2 border-transparent group-hover:border-white transition">           
-            <img src="/user/perfil.jpeg" alt="Perfil" className="w-full h-full object-cover" />          
+            <img src={import.meta.env.BASE_URL + "user/perfil.jpeg"} alt="Perfil" className="w-full h-full object-cover" />          
         </div>
 
         <span className="mt-4 text-lg text-zinc-400 group-hover:text-white transition">

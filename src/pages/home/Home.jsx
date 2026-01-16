@@ -15,7 +15,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    fetch("/data/movies.json")
+    fetch(import.meta.env.BASE_URL + "data/movies.json")
       .then((res) => res.json())
       .then((data) => setMovies(data));
   }, []);
@@ -32,7 +32,7 @@ export default function Home() {
         <div className="flex gap-6 text-md font-light">
           <span className="cursor-pointer hover:text-zinc-400 transition">Séries</span>
           <span className="cursor-pointer hover:text-zinc-400 transition">Filmes</span>
-          <div className="w-8 h-8 rounded block"><img src="/user/perfil.jpeg" alt="perfil" className="w-full h-full object-cover rounded-full"/></div>
+          <div className="w-8 h-8 rounded block"><img src={import.meta.env.BASE_URL + "user/perfil.jpeg"} alt="perfil" className="w-full h-full object-cover rounded-full"/></div>
         </div>
       </nav>
 
@@ -50,7 +50,7 @@ export default function Home() {
             >   
               <div className="relative aspect-2/3 overflow-hidden rounded-md transition-transform duration-300 ease-out group-hover:scale-105 group-hover:shadow-2xl">
                 <img
-                  src={movie.imagem}
+                  src={import.meta.env.BASE_URL + movie.imagem.replace("/", "")}
                   alt={movie.nome}
                   className="w-full h-full object-cover"
                 />
